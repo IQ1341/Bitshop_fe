@@ -3,26 +3,24 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
-import LoginPopup from './LoginPopup.jsx';
+import Login from './Login.jsx';
+import Registrasi from './Registrasi.jsx';
 import { FaSearch, FaShoppingCart, FaBars } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false);
   const isLoggedIn = false;
   const cartItemCount = 1;
+  const user = useSelector((state)=> state?.user)
+  console.log("test",user)
 
   return (
     <>
-      {/* Overlay untuk sidebar (Hanya menutupi home, tidak login popup) */}
-      {menuOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-30 z-[50]" 
-          onClick={() => setMenuOpen(false)}
-        ></div>
-      )}
 
-      <header className="h-20 shadow-md sticky top-0 bg-white z-[50]">
+      <header className="h-20 shadow-md sticky top-0 bg-white z-[40]">
         <div className="container mx-auto flex items-center h-full px-4 justify-between">
           {/* Logo */}
           <div className="h-full">
@@ -53,11 +51,12 @@ const Header = () => {
             {/* Login (Desktop) */}
             {!isLoggedIn && (
               <button
-                onClick={() => setIsLoginOpen(true)}
-                className="hidden lg:block text-green-600 hover:text-green-800"
-              >
-                Login
-              </button>
+              onClick={() => setIsLoginOpen(true)}
+              className="hidden lg:block bg-green-600 text-white font-medium px-4 py-1 rounded-full shadow-md hover:bg-green-700 transition duration-300"
+            >
+              Login
+            </button>
+            
             )}
 
             {/* Hamburger Menu (Mobile) */}
@@ -82,17 +81,8 @@ const Header = () => {
 
       {/* Sidebar */}
       <Sidebar isOpen={menuOpen} onClose={() => setMenuOpen(false)} onLoginOpen={() => setIsLoginOpen(true)} />
-
-      {/* Overlay untuk login popup (hanya menutupi home, bukan popup) */}
-      {isLoginOpen && (
-        <div 
-          className="fixed inset-0 bg-black bg-opacity-30 z-[50]" 
-          onClick={() => setIsLoginOpen(false)}
-        ></div>
-      )}
-
-      {/* Popup Login (z-[60] agar di atas overlay) */}
-      <LoginPopup isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      <Login isOpen={isLoginOpen} onClose={() => setIsLoginOpen(false)} onSwitchToSignUp={() => { setIsLoginOpen(false); setIsSignUpOpen(true); }} />
+      <Registrasi isOpen={isSignUpOpen} onClose={() => setIsSignUpOpen(false)} onSwitchToLogin={() => { setIsSignUpOpen(false); setIsLoginOpen(true); }} />
     </>
   );
 };

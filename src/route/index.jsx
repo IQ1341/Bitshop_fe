@@ -2,7 +2,11 @@ import  { createBrowserRouter} from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
 import ProductPage from "../pages/ProductPage";
-import LoginPopup from "../components/LoginPopup";
+import Login from "../components/Login";
+import Registrasi from "../components/Registrasi";
+import ForgotPassword from "../pages/ForgotPassword";
+import VerifyOTP from "../pages/VerifyOtp";
+import ResetPassword from "../pages/ResetPassword";
 
 const router = createBrowserRouter([
     {
@@ -18,9 +22,25 @@ const router = createBrowserRouter([
                 element : <ProductPage/>
             },
             {
+                path : "registrasi",
+                element : <Registrasi/>
+            },
+            {
                 path : "login",
-                element : <LoginPopup/>
-            }
+                element : <Login/>
+            },
+            {
+                path : "forgot-password",
+                element : <ForgotPassword/>
+            },
+            {
+                path : "verify-otp",
+                element : <VerifyOTP/>
+            },
+            {
+                path : "reset-password",
+                element : <ResetPassword/>
+            },
         ]
     }
 ])

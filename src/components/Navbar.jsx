@@ -8,7 +8,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/" 
-            className="text-green-600 hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
+            className="text-green-600 font-semibold hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
           >
             Home
           </Link>
@@ -16,7 +16,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/product" 
-            className="text-green-600 hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
+            className="text-green-600 font-semibold hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
           >
             Product
           </Link>
@@ -24,7 +24,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/about" 
-            className="text-green-600 hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
+            className="text-green-600 font-semibold hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
           >
             About
           </Link>
@@ -32,7 +32,7 @@ const Navbar = () => {
         <li>
           <Link 
             to="/contact" 
-            className="text-green-600 hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
+            className="text-green-600 font-semibold hover:text-green-800 transition-colors relative after:block after:h-0.5 after:bg-green-600 after:w-0 after:hover:w-full after:transition-all"
           >
             Contact
           </Link>
